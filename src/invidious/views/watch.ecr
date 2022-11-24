@@ -7,7 +7,7 @@
 <meta name="thumbnail" content="<%= thumbnail %>">
 <meta name="description" content="<%= HTML.escape(video.short_description) %>">
 <meta name="keywords" content="<%= video.keywords.join(",") %>">
-<meta property="og:site_name" content="<%= author %> | Invidious">
+<meta property="og:site_name" content="<%= author %> | METASTEM">
 <meta property="og:url" content="<%= HOST_URL %>/watch?v=<%= video.id %>">
 <meta property="og:title" content="<%= title %>">
 <meta property="og:image" content="/vi/<%= video.id %>/maxres.jpg">
@@ -28,7 +28,7 @@
 <meta name="twitter:player:height" content="720">
 <link rel="alternate" href="https://www.youtube.com/watch?v=<%= video.id %>">
 <%= rendered "components/player_sources" %>
-<title><%= title %> - Invidious</title>
+<title><%= title %> - METASTEM</title>
 
 <!-- Description expansion also updates the 'Show more' button to 'Show less' so
 we're going to need to do it here in order to allow for translations.
@@ -115,13 +115,6 @@ we're going to need to do it here in order to allow for translations.
                 <a href="https://www.youtube.com/watch?v=<%= video.id %>"><%= translate(locale, "videoinfo_watch_on_youTube") %></a>
                 (<a href="https://www.youtube.com/embed/<%= video.id %>"><%= translate(locale, "videoinfo_youTube_embed_link") %></a>)
             </span>
-            <p id="watch-on-another-invidious-instance">
-            <% if env.get("preferences").as(Preferences).automatic_instance_redirect%>
-                <a href="/redirect?referer=<%= env.get?("current_page") %>"><%= translate(locale, "Switch Invidious Instance") %></a>
-            <% else %>
-                <a href="https://redirect.invidious.io<%= env.request.resource %>"><%= translate(locale, "Switch Invidious Instance") %></a>
-            <% end %>
-            </p>
             <p id="embed-link">
                 <a href="<%= embed_link %>"><%= translate(locale, "videoinfo_invidious_embed_link") %></a>
             </p>

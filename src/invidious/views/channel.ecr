@@ -4,7 +4,7 @@
 
 <% content_for "header" do %>
 <meta name="description" content="<%= channel.description %>">
-<meta property="og:site_name" content="Invidious">
+<meta property="og:site_name" content="METASTEM">
 <meta property="og:url" content="<%= HOST_URL %>/channel/<%= ucid %>">
 <meta property="og:title" content="<%= author %>">
 <meta property="og:image" content="/ggpht<%= channel_profile_pic %>">
@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="<%= channel.description %>">
 <meta name="twitter:image" content="/ggpht<%= channel_profile_pic %>">
 <link rel="alternate" href="https://www.youtube.com/channel/<%= ucid %>">
-<title><%= author %> - Invidious</title>
+<title><%= author %> - METASTEM</title>
 <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed/channel/<%= ucid %>" />
 <% end %>
 
@@ -57,13 +57,6 @@
 <div class="pure-g h-box">
     <div class="pure-u-1-3">
         <a href="https://www.youtube.com/channel/<%= ucid %>"><%= translate(locale, "View channel on YouTube") %></a>
-        <div class="pure-u-1 pure-md-1-3">
-            <% if env.get("preferences").as(Preferences).automatic_instance_redirect%>
-                <a href="/redirect?referer=<%= env.get?("current_page") %>"><%= translate(locale, "Switch Invidious Instance") %></a>
-            <% else %>
-                <a href="https://redirect.invidious.io<%= env.request.path %>"><%= translate(locale, "Switch Invidious Instance") %></a>
-            <% end %>
-        </div>
         <% if !channel.auto_generated %>
             <div class="pure-u-1 pure-md-1-3">
                 <b><%= translate(locale, "Videos") %></b>

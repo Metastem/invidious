@@ -2,7 +2,7 @@
 <% author = HTML.escape(playlist.author) %>
 
 <% content_for "header" do %>
-<title><%= title %> - Invidious</title>
+<title><%= title %> - METASTEM</title>
 <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed/playlist/<%= plid %>" />
 <% end %>
 
@@ -42,15 +42,6 @@
                     </a>
                     <span> | </span>
 
-                    <% if env.get("preferences").as(Preferences).automatic_instance_redirect%>
-                        <a href="/redirect?referer=<%= env.get?("current_page") %>">
-                            <%= translate(locale, "Switch Invidious Instance") %>
-                        </a>
-                    <% else %>
-                        <a href="https://redirect.invidious.io/playlist?list=<%= playlist.id %>">
-                            <%= translate(locale, "Switch Invidious Instance") %>
-                        </a>
-                    <% end %>
             </div>
         <% end %>
     </div>
